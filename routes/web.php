@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Livewire\Admin\Brand\Index;
+use App\Models\Brand;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 
@@ -28,6 +31,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::put('category/{category}','update');
 
     });
+
+    Route::get('brands',Index::class);
+
 });
 
 
@@ -36,7 +42,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
 
 Route::get('demo', function () {
-    return $data =  User::find(19);
-    // $data->role_as = 1;
-    // $data->save();
+
+    // $user = new User();
+    // $user->name = "admin";
+    // $user->email = "admin@gmail.com";
+    // $user->password = Hash::make('admin@gmail.com');
+    // $user->role_as = 1;
+    // $user->save();
+
+    return Brand::paginate(3);
+
 });
