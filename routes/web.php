@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Livewire\Admin\Brand\Index;
 use App\Models\Brand;
+use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +35,15 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
     });
 
+    Route::controller(ProductController::class)->group(function(){
+        Route::get('products','index');
+        Route::get('products/create','create');
+        Route::post('products/store','store');
+    });
+
     Route::get('brands',Index::class);
+
+
 
 });
 
@@ -50,6 +61,6 @@ Route::get('demo', function () {
     // $user->role_as = 1;
     // $user->save();
 
-    return Brand::paginate(3);
+    return ProductImage::all();
 
 });

@@ -26,15 +26,15 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#product-ui" aria-expanded="false" aria-controls="product-ui">
+        <a class="nav-link" data-bs-toggle="collapse" href="#product" aria-expanded="false" aria-controls="product">
           <i class="mdi mdi-circle-outline menu-icon"></i>
           <span class="menu-title">Products</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="product-ui">
+        <div class="collapse" id="product">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{ url('') }}">Add product</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{  url('admin/product') }}">View product</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ url('admin/products/create') }}">Add product</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{  url('admin/products') }}">View product</a></li>
           </ul>
         </div>
       </li>
