@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Livewire\Admin\Brand\Index;
 use App\Models\Brand;
+use App\Models\Color;
 use App\Models\Product;
+use App\Models\ProductColor;
 use App\Models\ProductImage;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -39,13 +42,25 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('products','index');
         Route::get('products/create','create');
         Route::post('products/store','store');
+        Route::get('products/{product}/edit','edit');
+        Route::put('products/{product}','update');
+        Route::get('product-image/{Product_image_id}/delete','destroyImage');
+        Route::get('products/{product_id}/delete','destroy');
     });
-
     Route::get('brands',Index::class);
 
-
+    Route::controller(ColorController::class)->group(function(){
+        Route::get('colors','index');
+        Route::get('colors/create','create');
+        Route::post('colors/store','store');
+        Route::get('colors/{color_id}/edit','edit');
+        Route::get('colors/{color_id}/delete','destroy');
+        Route::put('colors/{color_id}','update');
+    });
 
 });
+
+
 
 
 
@@ -61,6 +76,10 @@ Route::get('demo', function () {
     // $user->role_as = 1;
     // $user->save();
 
-    return ProductImage::all();
+    return  ProductColor::all();
+
+
+
+
 
 });

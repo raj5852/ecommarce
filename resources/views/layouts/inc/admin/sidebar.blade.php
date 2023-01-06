@@ -45,6 +45,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="{{ url('admin/colors') }}">
+          <i class="mdi mdi-view-headline menu-icon"></i>
+          <span class="menu-title">Colors</span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="{{ url('admin/users') }}">
           <i class="mdi mdi-view-headline menu-icon"></i>
           <span class="menu-title">Users</span>
