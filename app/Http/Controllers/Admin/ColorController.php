@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ColorFormRequest;
 use App\Models\Color;
+use App\Models\Product;
+use App\Models\ProductColor;
 use Illuminate\Http\Request;
 
 class ColorController extends Controller
@@ -52,6 +54,22 @@ class ColorController extends Controller
       $color =  Color::find($color_id);
       $color->delete();
       return redirect('admin/colors')->with('message','Color deleted successfully');
+
+    }
+    function UpdateProductColorQty(Request $request,$product_color_id){
+        $productColorData = Product::findOrFail($request->product_id)
+                            ->productColors()->where('id',$product_color_id)->first();
+
+        $productColorData->update([
+            'quantity'=>$request->qty
+        ]);
+        return response()->json(['message'=>'Product color Qty Updated']);
+
+    }
+    function deleteProductColor($product_color_id){
+        $productColor = ProductColor::findOrFail($product_color_id);
+        $productColor->delete();
+        return response()->json(['message'=>'Product Color Deleted']);
 
     }
 }

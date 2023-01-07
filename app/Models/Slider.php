@@ -5,13 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductColor extends Model
+class Slider extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
-    function color(){
-        return $this->belongsTo(Color::class,'color_id','id');
-    }
 
 }

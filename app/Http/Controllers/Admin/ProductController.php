@@ -86,8 +86,12 @@ class ProductController extends Controller
         $categories = Category::all();
         $brands = Brand::all();
         $product = Product::findOrFail($product_id)->load('productImages');
-        return view('admin.products.edit', compact('product', 'categories', 'brands'));
+        $product_color =  $product->productColors->pluck('color_id')->toArray();
+        $colors = Color::whereNotIn('id',$product_color)->get();
+
+        return view('admin.products.edit', compact('product', 'categories', 'brands','colors'));
     }
+
     function update(ProductFormRequest $request, int $product_id)
     {
         $validateData = $request->validated();
@@ -128,6 +132,17 @@ class ProductController extends Controller
                     ]);
                 }
             }
+
+            if($request->colors){
+                foreach($request->colors as $key=>$color){
+                    $product->productColors()->create([
+                        'product_id'=> $product->id,
+                        'color_id'=>$color,
+                        'quantity'=>$request->colorquantity[$key] ?? 0
+                    ]);
+                }
+            }
+
             return redirect('admin/products')->with('message', 'Product Added  successfully');
 
 
