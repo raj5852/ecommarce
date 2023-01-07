@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Livewire\Admin\Brand\Index;
 use App\Models\Brand;
 use App\Models\Color;
@@ -19,9 +20,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/',[FrontendController::class,'index']);
+Route::get('collections',[FrontendController::class,'categories']);
+Route::get('collections/{category_slug}',[FrontendController::class,'products']);
+
 
 Auth::routes();
 
