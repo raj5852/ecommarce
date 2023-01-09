@@ -19,6 +19,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
+                                <th>Category</th>
                                 <th>Slug</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -29,9 +30,12 @@
                             @forelse ($brands as $brand)
                                 <tr>
                                     <td>{{ $brand->id }}</td>
-
-
                                     <td>{{ $brand->name }} </td>
+                                    @if ($brand->category)
+                                        <td>{{ $brand->category->name }} </td>
+                                        @else
+                                        No Category
+                                    @endif
                                     <td>{{ $brand->slug }} </td>
                                     <td>{{ $brand->status == true ? 'Hidden' : 'Visible' }} </td>
                                     <td>
@@ -39,7 +43,8 @@
                                             data-bs-toggle="modal" data-bs-target="#UpdateBrandModal"
                                             class="btn btn-success btn-sm">Edit</a>
 
-                                        <a href="#" wire:click="deleteBrand({{ $brand->id }})" data-bs-toggle="modal" data-bs-target="#DeleteBrandModal"
+                                        <a href="#" wire:click="deleteBrand({{ $brand->id }})"
+                                            data-bs-toggle="modal" data-bs-target="#DeleteBrandModal"
                                             class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>

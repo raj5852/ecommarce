@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[FrontendController::class,'index']);
 Route::get('collections',[FrontendController::class,'categories']);
 Route::get('collections/{category_slug}',[FrontendController::class,'products']);
+Route::get('collections/{category_slug}/{product_slug}',[FrontendController::class,'productsView']);
 
 
 Auth::routes();
@@ -96,9 +97,9 @@ Route::get('demo', function () {
     // $user->role_as = 1;
     // $user->save();
 
-    return Slider::all();
+    // return Slider::all();
 
-
+    return Brand::all();
 
 
 
