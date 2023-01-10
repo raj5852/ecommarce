@@ -24,8 +24,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-heart"></i> Wishlist (0)
+                            <a class="nav-link" href="{{ url('wishlist') }}">
+                                <i class="fa fa-heart"></i> Wishlist ( <livewire:frontend.wishlist-count/> )
                             </a>
                         </li>
                         @guest
@@ -51,7 +51,7 @@
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a>
                                 </li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a>
+                                <li><a class="dropdown-item" href="{{ url('wishlist') }}"><i class="fa fa-heart"></i> My Wishlist</a>
                                 </li>
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My
                                         Cart</a></li>
