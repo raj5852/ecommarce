@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Livewire\Admin\Brand\Index;
 use App\Models\Brand;
+use App\Models\Cart;
 use App\Models\Color;
 use App\Models\Product;
 use App\Models\ProductColor;
@@ -103,5 +104,7 @@ Route::get('demo', function () {
     // return Slider::all();
 
     // return Brand::all();
-    Wishlist::find(2)->delete();
+    // Wishlist::find(2)->delete();
+    return Cart::all();
+    // return Cart::query()->delete();
 });
