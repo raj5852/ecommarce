@@ -7,8 +7,36 @@ use Livewire\Component;
 
 class CartView extends Component
 {
-    public $cart;
+    public $cart, $totalPrice=0;
+    function removeCartItem(int $cartId)
+    {
+        $cartRemove = Cart::where('id', $cartId)->where('user_id', auth()->user()->id)->first();
+        if ($cartRemove) {
+            $cartRemove->delete();
 
+            $this->emit('CartAddedUpdated');
+            $this->dispatchBrowserEvent(
+                'message',
+                [
+                    'text' => 'Cart item removed successfully',
+                    'type' => 'info',
+                    'status' => 401
+                ]
+            );
+            return false;
+        }else{
+
+            $this->dispatchBrowserEvent(
+                'message',
+                [
+                    'text' => 'Something went wrong',
+                    'type' => 'info',
+                    'status' => 401
+                ]
+            );
+            return false;
+        }
+    }
     public  function decrementQuantity(int $cartId)
     {
         $cartData = Cart::where('id', $cartId)->where('user_id', auth()->user()->id)->first();
@@ -17,13 +45,12 @@ class CartView extends Component
             if ($cartData->productColor()->where('id', $cartData->product_color_id)->exists()) {
                 // dd('have');
                 $productColor = $cartData->productColor()->where('id', $cartData->product_color_id)->first();
-                if ($productColor->quantity >= $cartData->quantity ) {
+                if ($productColor->quantity >= $cartData->quantity) {
 
-                    if($cartData->quantity  > 1){
+                    if ($cartData->quantity  > 1) {
                         $cartData->decrement('quantity');
-                    }else{
-                       return false;
-
+                    } else {
+                        return false;
                     }
 
                     $this->dispatchBrowserEvent(
@@ -34,12 +61,12 @@ class CartView extends Component
                             'status' => 200
                         ]
                     );
-                }else{
+                } else {
 
                     $this->dispatchBrowserEvent(
                         'message',
                         [
-                            'text' => 'only'. $productColor->quantity.'Quantity Available',
+                            'text' => 'only' . $productColor->quantity . 'Quantity Available',
                             'type' => 'success',
                             'status' => 200
                         ]
@@ -48,11 +75,10 @@ class CartView extends Component
             } else {
                 if ($cartData->product->quantity > $cartData->cartData) {
 
-                    if($cartData->quantity  > 1){
+                    if ($cartData->quantity  > 1) {
                         $cartData->decrement('quantity');
-                    }else{
-                       return false;
-
+                    } else {
+                        return false;
                     }
 
                     $this->dispatchBrowserEvent(
@@ -63,11 +89,11 @@ class CartView extends Component
                             'status' => 200
                         ]
                     );
-                }else{
+                } else {
                     $this->dispatchBrowserEvent(
                         'message',
                         [
-                            'text' => 'only'. $cartData->product->quantity.'Quantity Available',
+                            'text' => 'only' . $cartData->product->quantity . 'Quantity Available',
                             'type' => 'success',
                             'status' => 200
                         ]
@@ -113,12 +139,12 @@ class CartView extends Component
                             'status' => 200
                         ]
                     );
-                }else{
+                } else {
 
                     $this->dispatchBrowserEvent(
                         'message',
                         [
-                            'text' => 'only'. $productColor->quantity.'Quantity Available',
+                            'text' => 'only' . $productColor->quantity . 'Quantity Available',
                             'type' => 'success',
                             'status' => 200
                         ]
@@ -135,11 +161,11 @@ class CartView extends Component
                             'status' => 200
                         ]
                     );
-                }else{
+                } else {
                     $this->dispatchBrowserEvent(
                         'message',
                         [
-                            'text' => 'only'. $cartData->product->quantity.'Quantity Available',
+                            'text' => 'only' . $cartData->product->quantity . 'Quantity Available',
                             'type' => 'success',
                             'status' => 200
                         ]
