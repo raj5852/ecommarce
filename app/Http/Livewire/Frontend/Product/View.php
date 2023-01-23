@@ -104,6 +104,7 @@ class View extends Component
                                         'quantity' => $this->quantityCount,
 
                                     ]);
+                                    $this->emit('CartAddedUpdated');
 
                                     $this->dispatchBrowserEvent(
                                         'message',
@@ -173,6 +174,7 @@ class View extends Component
                                     'product_id' => $productId,
                                     'quantity' => $this->quantityCount,
                                 ]);
+                                $this->emit('CartAddedUpdated');
 
                                 $this->dispatchBrowserEvent(
                                     'message',
