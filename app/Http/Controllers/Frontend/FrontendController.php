@@ -46,4 +46,8 @@ class FrontendController extends Controller
             return redirect()->back();
         }
     }
+
+    function thankyou(){
+        return view('frontend.thank-you');
+    }
 }

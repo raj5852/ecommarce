@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Livewire\Admin\Brand\Index;
@@ -13,6 +14,8 @@ use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\Color;
 use App\Models\Demo;
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\ProductColor;
 use App\Models\ProductImage;
@@ -36,7 +39,11 @@ Route::get('collections/{category_slug}/{product_slug}', [FrontendController::cl
 Route::middleware(['auth'])->group(function () {
     Route::get('wishlist', [WishlistController::class, 'index']);
     Route::get('cart', [CartController::class, 'index']);
+    Route::get('checkout', [CheckoutController::class, 'index']);
 });
+
+Route::get('thank-you',[FrontendController::class,'thankyou']);
+
 
 Auth::routes();
 
@@ -114,6 +121,6 @@ Route::get('demo', function () {
     //     'amount'=>100
     // ]);
     // return "ok";
-
+// return OrderItem::all();
 
 });
