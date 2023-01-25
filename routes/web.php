@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Livewire\Admin\Brand\Index;
 use App\Models\Brand;
@@ -40,6 +41,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('wishlist', [WishlistController::class, 'index']);
     Route::get('cart', [CartController::class, 'index']);
     Route::get('checkout', [CheckoutController::class, 'index']);
+    Route::get('orders', [OrderController::class, 'index']);
+    Route::get('orders/{orderId}', [OrderController::class, 'show']);
 });
 
 Route::get('thank-you',[FrontendController::class,'thankyou']);
