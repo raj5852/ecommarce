@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -13,8 +14,13 @@ class OrderController extends Controller
         $orders = Order::where('user_id',auth()->user()->id)->orderBy('created_at','desc')->paginate(5);
         return view('frontend.orders.index',compact('orders'));
     }
+
     function show($orderId){
         $order = Order::where('user_id',auth()->user()->id)->where('id',$orderId)->first();
+
+        // return $order->orderItems[0]->product;
+        // return Product::all();
+
         if($order){
             return view('frontend.orders.view',compact('order'));
 
