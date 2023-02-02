@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
@@ -21,6 +22,7 @@ use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\ProductColor;
 use App\Models\ProductImage;
+use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\User;
 use App\Models\Wishlist;
@@ -60,6 +62,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::get('settings',[SettingController::class,'index']);
+    Route::post('settings',[SettingController::class,'store']);
+
 
     Route::controller(SliderController::class)->group(function () {
         Route::get('sliders', 'index');
@@ -143,4 +148,5 @@ Route::get('demo', function () {
     // return "ok";
     //   return Order::all();
         // return Product::all();
+        return Setting::all();
 });
