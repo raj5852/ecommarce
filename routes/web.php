@@ -44,6 +44,8 @@ Route::get('collections/{category_slug}/{product_slug}', [FrontendController::cl
 
 Route::get('new-arrivals',[FrontendController::class,'newArrivals']);
 Route::get('featured-products',[FrontendController::class,'featuredProducts']);
+Route::get('search',[FrontendController::class,'searchProduct']);
+
 
 
 Route::middleware(['auth'])->group(function () {
