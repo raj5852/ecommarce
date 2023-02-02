@@ -38,6 +38,11 @@ Route::get('collections', [FrontendController::class, 'categories']);
 Route::get('collections/{category_slug}', [FrontendController::class, 'products']);
 Route::get('collections/{category_slug}/{product_slug}', [FrontendController::class, 'productsView']);
 
+
+Route::get('new-arrivals',[FrontendController::class,'newArrivals']);
+Route::get('featured-products',[FrontendController::class,'featuredProducts']);
+
+
 Route::middleware(['auth'])->group(function () {
     Route::get('wishlist', [WishlistController::class, 'index']);
     Route::get('cart', [CartController::class, 'index']);
@@ -136,6 +141,6 @@ Route::get('demo', function () {
     //     'amount'=>100
     // ]);
     // return "ok";
-      return Order::all();
-
+    //   return Order::all();
+        // return Product::all();
 });

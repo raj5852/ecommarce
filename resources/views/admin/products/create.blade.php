@@ -116,6 +116,10 @@
                                     <input type="checkbox" name="trending" style="width: 20px;height:20px">
                                 </div>
                                 <div class="mb-3">
+                                    <label for="">Featured</label>
+                                    <input type="checkbox" name="featured" style="width: 20px;height:20px">
+                                </div>
+                                <div class="mb-3">
                                     <label for="">Status</label>
                                     <input type="checkbox" name="status" style="width: 20px;height:20px">
                                 </div>

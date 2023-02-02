@@ -63,11 +63,7 @@
                                     <span class="selling-price">{{ $productItem->selling_price }} </span>
                                     <span class="original-price">{{ $productItem->original_price }}</span>
                                 </div>
-                                {{-- <div class="mt-2">
-                <a href="" class="btn btn1">Add To Cart</a>
-                <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
-                <a href="" class="btn btn1"> View </a>
-            </div> --}}
+
                             </div>
                         </div>
                     </div>
