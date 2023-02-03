@@ -1,6 +1,5 @@
 <div>
 
-
     <div class="py-3 py-md-4 checkout">
         <div class="container">
             <h4>Checkout</h4>
@@ -30,7 +29,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label>Full Name</label>
                                     <input type="text" wire:model="fullname" id="fullname" class="form-control"
-                                        placeholder="Enter Full Name" />
+                                        placeholder="Enter Full Name"  />
                                     @error('fullname')
                                         <small class="text-danger">{{ $message }} </small>
                                     @enderror

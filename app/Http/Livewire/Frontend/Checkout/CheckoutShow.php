@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire\Frontend\Checkout;
 
+use App\Mail\PlaceOrderMail;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -108,6 +110,16 @@ class CheckoutShow extends Component
     {
         $this->payment_mode = 'Cash on Delivery';
         $codOrder = $this->placeOrder();
+
+        try{
+            //mail send successfully
+            $order = Order::findOrFail($codOrder->id);
+            Mail::to($order->email)->send(new PlaceOrderMail($order));
+        }catch(\Exception $e){
+            //something went wrong
+        }
+
+
         if($codOrder){
             Cart::where('user_id',auth()->user()->id)->delete();
             $this->dispatchBrowserEvent(
@@ -144,6 +156,14 @@ class CheckoutShow extends Component
 
     public function render()
     {
+        $this->fullname = auth()->user()->name;
+        $this->email = auth()->user()->email;
+        $this->phone = auth()->user()->userDetails->phone;
+        $this->pincode = auth()->user()->userDetails->pin_code;
+        $this->address = auth()->user()->userDetails->address;
+
+
+
         $this->totalProductAmount = $this->totalProductAmount();
 
         return view('livewire.frontend.checkout.checkout-show', [
