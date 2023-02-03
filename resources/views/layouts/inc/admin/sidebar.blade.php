@@ -20,7 +20,7 @@
         </a>
         <div class="collapse" id="category-ui">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{ url('admin/category/create') }}">Add Category</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('categorycreate') }}">Add Category</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{  url('admin/category') }}">View Category</a></li>
           </ul>
         </div>
@@ -33,7 +33,7 @@
         </a>
         <div class="collapse" id="product">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{ url('admin/products/create') }}">Add product</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('productcreate')}}">Add product</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{  url('admin/products') }}">View product</a></li>
           </ul>
         </div>

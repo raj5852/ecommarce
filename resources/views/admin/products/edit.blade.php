@@ -75,7 +75,7 @@
                                     <label for="">Select Brand</label>
                                     <select name="brand" class="form-control" id="">
                                         @foreach ($brands as $brand)
-                                            <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                                            <option value="{{ $brand->name }}" {{ $brand->name == "$product->brand" ? 'selected':''  }} >{{ $brand->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

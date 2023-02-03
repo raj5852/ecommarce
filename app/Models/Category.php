@@ -11,7 +11,7 @@ class Category extends Model
     protected $guarded = [];
 
     function products(){
-       return  $this->hasMany(Product::class);
+       return  $this->hasMany(Product::class)->latest();
     }
     function brands(){
         return $this->hasMany(Brand::class)->where('status',0);
