@@ -6,15 +6,14 @@
                 <div class="alert alert-success">{{ session('message') }}</div>
             @endif
             <div class="row">
-                <div class="col-md-5 mt-3">
-                    <div class="bg-white border" wire:ignore>
+                <div class="col-md-5 mt-3" >
+                    <div class="bg-white border" wire:ignore >
                         @if ($product->productImages)
-                            {{-- <img src="{{ asset($product->productImages[0]->image) }}" class="w-100" alt="Img"> --}}
                             <div class="exzoom" id="exzoom">
                                 <div class="exzoom_img_box">
                                     <ul class='exzoom_img_ul'>
                                         @foreach ($product->productImages as $itemImg)
-                                            <li><img src="{{ asset($itemImg->image) }}" /></li>
+                                            <li><img style="max-width: 449px" src="{{ asset($itemImg->image) }}" /></li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -85,11 +84,9 @@
 
                             </button>
                             <button type="button" wire:click="addToWishList({{ $product->id }})" class="btn btn1">
-                                <span wire:loading.remove wire:target="addToWishList">
+                                <span >
                                     <i class="fa fa-heart"></i> Add To Wishlist
-
                                 </span>
-                                {{-- <span wire:loading wire:target="addToWishList">Adding...</span> --}}
 
                             </button>
                         </div>

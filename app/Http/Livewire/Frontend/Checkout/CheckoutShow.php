@@ -158,9 +158,6 @@ class CheckoutShow extends Component
     {
         $this->fullname = auth()->user()->name;
         $this->email = auth()->user()->email;
-        $this->phone = auth()->user()->userDetails->phone;
-        $this->pincode = auth()->user()->userDetails->pin_code;
-        $this->address = auth()->user()->userDetails->address;
 
 
 

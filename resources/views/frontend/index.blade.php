@@ -47,12 +47,8 @@
                     <h4>Welcome to Ecommerce</h4>
                     <div class="underline mx-auto"></div>
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio nihil, veniam quibusdam iure minus
-                        atque cumque vitae consequuntur hic repellat. Nobis et magnam dolor. Ex voluptatum aspernatur modi
-                        odio tempore, assumenda quibusdam id blanditiis necessitatibus numquam architecto repudiandae cumque
-                        amet deserunt dolore debitis autem, harum nemo non explicabo adipisci mollitia unde. Est placeat
-                        atque cum laboriosam fugiat. Dolore beatae aut culpa officia quibusdam adipisci? Laborum fugiat
-                        accusamus odio ratione laboriosam?
+                        Welcome to our online store! We're excited to offer you a seamless shopping experience with our extensive range of products and user-friendly platform <br>
+
                     </p>
                 </div>
 
@@ -73,7 +69,7 @@
 
                             @foreach ($trendingProducts as $productItem)
                                 <div class="item">
-                                    <div class="product-card">
+                                    <div class="product-card" style="min-height: 380px;">
                                         <div class="product-card-img">
                                             <label class="stock bg-danger">New</label>
                                             @if ($productItem->productImages->count() > 0)
@@ -134,7 +130,7 @@
 
                             @foreach ($newArrivalProducts as $productItem)
                                 <div class="item">
-                                    <div class="product-card">
+                                    <div class="product-card" style="min-height: 380px;">
                                         <div class="product-card-img">
                                             <label class="stock bg-danger">New</label>
                                             @if ($productItem->productImages->count() > 0)
@@ -192,7 +188,7 @@
 
                             @foreach ($featuredProducts as $productItem)
                                 <div class="item">
-                                    <div class="product-card">
+                                    <div class="product-card" style="min-height: 380px;" >
                                         <div class="product-card-img">
                                             <label class="stock bg-danger">New</label>
                                             @if ($productItem->productImages->count() > 0)

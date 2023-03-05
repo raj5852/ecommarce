@@ -52,19 +52,22 @@
                             </div>
                         </div>
                     </div>
-            </div>
-        @empty
-            <div class="col-md-12 p-2">
-                <h4>No Search Products Found </h4>
-            </div>
-            @endforelse
-            <div class="col-md-10">
-                {{$searchProducts->appends(request()->input())->links()}}
-            </div>
 
+                @empty
+
+                    <div class="col-md-12 p-2">
+                        <h4>No Search Products Found </h4>
+                    </div>
+                @endforelse
+                <div class="col-md-10">
+                    {{ $searchProducts->appends(request()->input())->links() }}
+                </div>
+
+            </div>
         </div>
+
     </div>
-    </div>
+
 
 
 @endsection

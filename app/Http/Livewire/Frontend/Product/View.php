@@ -16,10 +16,12 @@ class View extends Component
 
     function addToWishList($productId)
     {
-        // dd($productId);
+
+
+
+
         if (Auth::check()) {
             if (Wishlist::where('user_id', auth()->user()->id)->where('product_id', $productId)->exists()) {
-                session()->flash('message', 'Already to Wishlist');
                 $this->dispatchBrowserEvent(
                     'message',
                     [
@@ -35,7 +37,6 @@ class View extends Component
                     'product_id' => $productId
                 ]);
                 $this->emit('wishlistAddedUpdated');
-                session()->flash('message', 'Wishlist Added Successfully');
                 $this->dispatchBrowserEvent(
                     'message',
                     [
@@ -46,7 +47,6 @@ class View extends Component
                 );
             }
         } else {
-            session()->flash('message', 'Please  Login to Continu');
             $this->dispatchBrowserEvent(
                 'message',
                 [
@@ -117,11 +117,10 @@ class View extends Component
                                     return false;
                                 } else {
                                     //ss
-                                    session()->flash('message', 'Only ' . $productColor->quantity . ' quantity Available');
                                     $this->dispatchBrowserEvent(
                                         'message',
                                         [
-                                            'text' => 'Only ' . $productColor->quantity. ' quantity Available',
+                                            'text' => 'Only ' . $productColor->quantity . ' quantity Available',
                                             'type' => 'info',
                                             'status' => 401
                                         ]
@@ -186,7 +185,6 @@ class View extends Component
                                 );
                                 return false;
                             } else {
-                                session()->flash('message', 'Only ' . $this->product->quantity . ' quantity Available');
                                 $this->dispatchBrowserEvent(
                                     'message',
                                     [
@@ -198,7 +196,6 @@ class View extends Component
                                 return false;
                             }
                         } else {
-                            session()->flash('message', 'Out of Stock');
                             $this->dispatchBrowserEvent(
                                 'message',
                                 [
@@ -212,7 +209,6 @@ class View extends Component
                     }
                 }
             } else {
-                session()->flash('message', 'Product does not exists');
                 $this->dispatchBrowserEvent(
                     'message',
                     [
@@ -224,7 +220,6 @@ class View extends Component
                 return false;
             }
         } else {
-            session()->flash('message', 'Please  Login to Continu');
             $this->dispatchBrowserEvent(
                 'message',
                 [

@@ -34,9 +34,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('collections', [FrontendController::class, 'categories']);
 Route::get('collections/{category_slug}', [FrontendController::class, 'products']);
@@ -149,21 +147,17 @@ Route::get('demo', function () {
     // $user = new User();
     // $user->name = "admin";
     // $user->email = "admin@gmail.com";
-    // $user->password = Hash::make('admin@gmail.com');
+    // $user->password = Hash::make('12345678');
     // $user->role_as = 1;
     // $user->save();
 
-    // return Slider::all();
-
-    // return Brand::all();
-    // Wishlist::find(2)->delete();
-    // return Cart::all();
-    // return Cart::query()->delete();
-    // return Demo::create([
-    //     'amount'=>100
-    // ]);
     // return "ok";
-    //   return Order::all();
-        // return Product::all();
-        return Setting::all();
+
+    // return $user =  Db::table('users')->delete();
+    // $user->password = '$2y$10$V3Wq3A92G0CfSWAt6VKaZuEWbtRAEgaW0uwPYUnCN5BBPielyQrCq';
+    // $user->save();
+    // return "ok";
+
+    // return bcrypt('123456789');
+
 });

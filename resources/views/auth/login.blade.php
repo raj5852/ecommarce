@@ -65,6 +65,10 @@
                             </div>
                         </div>
                     </form>
+                    <br>
+                    <h3>Admin Login</h3>
+                    <p><b>Email</b>: admin@gmail.com</p>
+                    <p> <b>password</b>: 12345678</p>
                 </div>
             </div>
         </div>

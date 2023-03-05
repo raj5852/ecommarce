@@ -19,19 +19,19 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="">Website Name</label>
-                            <input type="text" name="website_name" value="{{ $setting->website_name }}" class="form-control">
+                            <input type="text" name="website_name" value="{{$setting->website_name??''}} "  class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Website URL</label>
-                            <input type="text" name="website_url" value="{{ $setting->website_url }}" class="form-control">
+                            <input type="text" name="website_url" value="{{ $setting->website_url ??'' }}" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Page Title</label>
-                            <input type="text" name="website_title" value="{{ $setting->website_title }}" class="form-control">
+                            <input type="text" name="website_title" value="{{ $setting->website_title??'' }}" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Meta Keywords</label>
-                            <textarea name="website_keyword"   rows="3" class="form-control">{{ $setting->website_keyword ?? '' }}</textarea>
+                            <textarea name="website_keyword"   rows="3" class="form-control">{{ $setting->website_keyword??'' }}</textarea>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Meta Description</label>
@@ -53,19 +53,19 @@
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="">Phone No 1 *</label>
-                            <input type="text" name="phone1" value="{{ $setting->phone1 }}" class="form-control">
+                            <input type="text" name="phone1" value="{{ $setting->phone1 ?? '' }}" class="form-control">
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="">Phone No 2 *</label>
-                            <input type="text" name="phone2"  value="{{ $setting->phone2 }}" class="form-control">
+                            <input type="text" name="phone2"  value="{{ $setting->phone2 ?? '' }}" class="form-control">
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="">Email ID 1 *</label>
-                            <input type="text" name="email1" value="{{ $setting->email1 }}" class="form-control">
+                            <input type="text" name="email1" value="{{ $setting->email1 ?? '' }}" class="form-control">
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="">Email ID 2 *</label>
-                            <input type="text" name="email2" value="{{ $setting->email2 }}" class="form-control">
+                            <input type="text" name="email2" value="{{ $setting->email2 ?? '' }}" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -80,19 +80,19 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="">Facebook (Optional) </label>
-                            <input type="text" name="facebook" value="{{ $setting->facebook }}" class="form-control">
+                            <input type="text" name="facebook" value="{{ $setting->facebook ?? '' }}" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Twitter (Optional) </label>
-                            <input type="text" name="twitter" value="{{ $setting->twitter }}" class="form-control">
+                            <input type="text" name="twitter" value="{{ $setting->twitter ?? '' }}" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Instragram (Optional) </label>
-                            <input type="text" name="instragram" value="{{ $setting->instragram }}"  class="form-control">
+                            <input type="text" name="instragram" value="{{ $setting->instragram ?? '' }}"  class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Youtube (Optional) </label>
-                            <input type="text" name="youtube" value="{{ $setting->youtube }}" class="form-control">
+                            <input type="text" name="youtube" value="{{ $setting->youtube ?? '' }}" class="form-control">
                         </div>
                     </div>
                 </div>

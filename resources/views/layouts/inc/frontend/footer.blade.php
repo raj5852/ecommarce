@@ -60,23 +60,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <p class=""> &copy; 2022 - Funda of Web IT - Ecommerce. All rights reserved.</p>
+                    <p class=""> &copy; 2023 - Raj - Ecommerce. All rights reserved.</p>
                 </div>
                 <div class="col-md-4">
                     <div class="social-media">
                         Get Connected:
-                        @if ($appSetting->facebook)
-                            <a href="{{ $appSetting->facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                        @if ($appSetting)
+                            @if ($appSetting->facebook)
+                                <a href="{{ $appSetting->facebook }}" target="_blank"><i
+                                        class="fa fa-facebook"></i></a>
+                            @endif
+                            @if ($appSetting->twitter)
+                                <a href="{{ $appSetting->twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                            @endif
+                            @if ($appSetting->instragram)
+                                <a href="{{ $appSetting->instragram }}" target="_blank"><i
+                                        class="fa fa-instagram"></i></a>
+                            @endif
+                            @if ($appSetting->youtube)
+                                <a href="{{ $appSetting->youtube }}" target="_blank"><i class="fa fa-youtube"></i></a>
+                            @endif
                         @endif
-                        @if ($appSetting->twitter)
-                            <a href="{{$appSetting->twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
-                        @endif
-                        @if ($appSetting->instragram)
-                            <a href="{{ $appSetting->instragram }}" target="_blank"><i class="fa fa-instagram"></i></a>
-                        @endif
-                        @if ($appSetting->youtube)
-                            <a href="{{$appSetting->youtube}}" target="_blank"><i class="fa fa-youtube"></i></a>
-                        @endif
+
 
 
                     </div>
